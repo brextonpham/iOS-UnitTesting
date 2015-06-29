@@ -25,16 +25,24 @@
     [super tearDown];
 }
 
-- (void)testExample {
-    // This is an example of a functional test case.
-    XCTAssert(YES, @"Pass");
+- (void) testTrue {
+    XCTAssertTrue(true, @"Expression was not true");
 }
 
-- (void)testPerformanceExample {
-    // This is an example of a performance test case.
-    [self measureBlock:^{
-        // Put the code you want to measure the time of here.
-    }];
+- (void) testFalse {
+    int val1 = 1;
+    int val2 = 2;
+    XCTAssertFalse(val1 == val2, @"%d != %d", val1, val2);
+}
+
+- (void) testStringForNil {
+    NSString *someString;
+    XCTAssertNil(someString, @"someString was not nil");
+}
+
+- (void) testStringNotNil {
+    NSString *someString = @"brexton";
+    XCTAssertNotNil(someString, @"someString == '%@'", someString);
 }
 
 @end
